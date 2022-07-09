@@ -284,7 +284,7 @@ function App() {
             <Header onSignOut={handleSignOut} userEmail={userEmail} loggedIn={loggedIn}/>
             <Switch>
                 <ProtectedRoute exact path="/" loggedIn={loggedIn}>
-                    <Main
+                    {cards ? <Main
                         cards={cards}
                         onCardClick={handleCardClick} // нажатие на карточку
                         onEditProfile={handleEditProfileClick} // редактирование профиля
@@ -293,7 +293,7 @@ function App() {
                         onDeleteCard={handleDeletePlaceClick} // удаление карточки
                         onCardLike={handleCardLike} // лайк/дизлайк
                         isLoadingAllData={isLoadingAllData}
-                    />
+                    /> : <></>}
                 </ProtectedRoute>
                 <Route exact path="/sign-in">
                     <Login handleLogin={handleLogin} tokenCheck={tokenCheck}/>
