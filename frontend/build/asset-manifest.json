@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/react-mesto-auth/static/css/main.8fc14d7d.css",
-    "main.js": "/react-mesto-auth/static/js/main.2a5a7543.js",
-    "static/media/Inter-Bold.woff?v=3.19": "/react-mesto-auth/static/media/Inter-Bold.93c1301bd9f486c573b3.woff",
-    "static/media/Inter-Black.woff?v=3.19": "/react-mesto-auth/static/media/Inter-Black.c6938660eec019fefd68.woff",
-    "static/media/Inter-Regular.woff?v=3.19": "/react-mesto-auth/static/media/Inter-Regular.8c206db99195777c6769.woff",
-    "static/media/Inter-Bold.woff2?v=3.19": "/react-mesto-auth/static/media/Inter-Bold.ec64ea577b0349e055ad.woff2",
-    "static/media/Inter-Black.woff2?v=3.19": "/react-mesto-auth/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
-    "static/media/Inter-Regular.woff2?v=3.19": "/react-mesto-auth/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
-    "index.html": "/react-mesto-auth/index.html",
-    "static/media/photo-card__like-button.svg": "/react-mesto-auth/static/media/photo-card__like-button.b3df3d775b2efc93ed76.svg",
-    "static/media/tooltip_error.svg": "/react-mesto-auth/static/media/tooltip_error.9eb8cf154703154bf4c256f4dee36bfe.svg",
-    "static/media/photo-card__delete.svg": "/react-mesto-auth/static/media/photo-card__delete.efce8d2dbad0fd439fd6.svg",
-    "static/media/tooltip_succes.svg": "/react-mesto-auth/static/media/tooltip_succes.2769ac1f0834909303e8bf6fab0627c7.svg",
-    "static/media/photo-card__like-button_active.svg": "/react-mesto-auth/static/media/photo-card__like-button_active.287e548ff93a727c6cd4.svg",
-    "static/media/profile__button.svg": "/react-mesto-auth/static/media/profile__button.32f35b127ff221b4887c.svg",
-    "static/media/profile__edit-avatar-button.svg": "/react-mesto-auth/static/media/profile__edit-avatar-button.2bc92905b5abdbaa89cb.svg",
-    "static/media/popup__close-button.svg": "/react-mesto-auth/static/media/popup__close-button.41fe4427edd9f2cae7d6.svg",
-    "static/media/profile__add-button.svg": "/react-mesto-auth/static/media/profile__add-button.e008c015a81fb7033fa2.svg",
-    "main.8fc14d7d.css.map": "/react-mesto-auth/static/css/main.8fc14d7d.css.map",
-    "main.2a5a7543.js.map": "/react-mesto-auth/static/js/main.2a5a7543.js.map"
+    "main.css": "/static/css/main.7d7fbd68.css",
+    "main.js": "/static/js/main.c02bffda.js",
+    "static/media/Inter-Bold.woff?v=3.19": "/static/media/Inter-Bold.93c1301bd9f486c573b3.woff",
+    "static/media/Inter-Black.woff?v=3.19": "/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Bold.woff2?v=3.19": "/static/media/Inter-Bold.ec64ea577b0349e055ad.woff2",
+    "static/media/Inter-Black.woff2?v=3.19": "/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2?v=3.19": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "index.html": "/index.html",
+    "static/media/photo-card__like-button.svg": "/static/media/photo-card__like-button.b3df3d775b2efc93ed76.svg",
+    "static/media/tooltip_error.svg": "/static/media/tooltip_error.9eb8cf154703154bf4c256f4dee36bfe.svg",
+    "static/media/photo-card__delete.svg": "/static/media/photo-card__delete.efce8d2dbad0fd439fd6.svg",
+    "static/media/tooltip_succes.svg": "/static/media/tooltip_succes.2769ac1f0834909303e8bf6fab0627c7.svg",
+    "static/media/photo-card__like-button_active.svg": "/static/media/photo-card__like-button_active.287e548ff93a727c6cd4.svg",
+    "static/media/profile__button.svg": "/static/media/profile__button.32f35b127ff221b4887c.svg",
+    "static/media/profile__edit-avatar-button.svg": "/static/media/profile__edit-avatar-button.2bc92905b5abdbaa89cb.svg",
+    "static/media/popup__close-button.svg": "/static/media/popup__close-button.41fe4427edd9f2cae7d6.svg",
+    "static/media/profile__add-button.svg": "/static/media/profile__add-button.e008c015a81fb7033fa2.svg",
+    "main.7d7fbd68.css.map": "/static/css/main.7d7fbd68.css.map",
+    "main.c02bffda.js.map": "/static/js/main.c02bffda.js.map"
   },
   "entrypoints": [
-    "static/css/main.8fc14d7d.css",
-    "static/js/main.2a5a7543.js"
+    "static/css/main.7d7fbd68.css",
+    "static/js/main.c02bffda.js"
   ]
 }
