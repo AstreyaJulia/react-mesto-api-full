@@ -41,7 +41,7 @@ const Main = (props) => {
             </section>
             <section className="gallery">
                 <ul className="photo-cards">
-                    {props.cards && props.cards.length > 0 ? props.cards.map((card) => {
+                    {props.cards ? props.cards.map((card) => {
                             return (
                                 <Card
                                     card={card}
