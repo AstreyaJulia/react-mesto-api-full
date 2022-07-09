@@ -7,7 +7,7 @@ export class Api {
         this._serverURL = options.serverURL;
         /** возвращает ответ / ошибку после выполнения промиса */
         this._handlePromiseReturn = ((res) => {
-            if (res.status === 200 || res.status === 304) {
+            if (res.ok) {
                 return res.json();
             }
             return Promise.reject(`Ошибка: ${res.status}`);

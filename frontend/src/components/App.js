@@ -122,11 +122,11 @@ function App() {
     /** Ставит/удаляет лайк
      * @param card - объект карточки */
     function handleCardLike(card) {
-        const isLiked = card.likes.some((i) => i._id === currentUser._id);
+        const isLiked = card.likes.some((i) => i === currentUser._id);
 
         api.changeLikeCardStatus(card._id, isLiked)
             .then((newCard) => {
-                setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+                setCards((state) => state.map((c) => (c._id === card._id ? newCard.data : c)));
             })
             .catch((err) => console.log(err));
     }
@@ -152,7 +152,7 @@ function App() {
         setIsLoading(true);
         api.sendUserInfo(inputValues.name, inputValues.about)
             .then((user) => {
-                setCurrentUser(user);
+                setCurrentUser(user.data);
                 closeAllPopups();
             })
             .catch((err) => console.log(err))
@@ -167,7 +167,7 @@ function App() {
         setIsLoading(true);
         api.updateAvatar(avatar.avatar)
             .then((avatar) => {
-                setCurrentUser(avatar);
+                setCurrentUser(avatar.data);
                 closeAllPopups();
             })
             .catch((err) => console.log(err))
@@ -182,7 +182,7 @@ function App() {
         setIsLoading(true);
         api.sendCard(inputValues.name, inputValues.link)
             .then((data) => {
-                setCards([data, ...cards]);
+                setCards([data.data, ...cards]);
                 closeAllPopups();
             })
             .catch((err) => console.log(err))
@@ -248,6 +248,8 @@ function App() {
     const handleSignOut = () => {
         localStorage.removeItem("jwt");
         setLoggedIn(false);
+        history.push("/sign-in");
+        setUserEmail("");
     }
 
     /** Перенаправление на главную для зарег. пользователя и на login для незарег. пользователя */
@@ -269,8 +271,8 @@ function App() {
             api.getAllData()
                 .then((data) => {
                     const [userData, cardsData] = data;
-                    setCards(cardsData);
-                    setCurrentUser(userData);
+                    setCards(cardsData.data.reverse());
+                    setCurrentUser(userData.data);
                 })
                 .catch(error => console.log(error))
                 .finally(() => {
@@ -341,6 +343,7 @@ function App() {
                 isLoading={isLoading}
                 loadingText="Удаление..."
                 onSubmit={handleCardDelete}
+                isValid={true}
             />
             {/** Всплывашка редактирования аватара */}
             <EditAvatarPopup

@@ -15,7 +15,7 @@ const Card = (props) => {
     const {name, link, owner, likes} = props.card;
 
     /** Есть ли лайк текущего пользователя на карточке */
-    const isLiked = likes.some(i => i._id === currentUser._id);
+    const isLiked = likes.some(i => i === currentUser._id.toString());
 
     /** Нажатие на карточку */
     function handleClick() {
@@ -35,7 +35,7 @@ const Card = (props) => {
     return (
         <li>
             <article className="photo-card">
-                {owner._id === currentUser._id
+                {owner === currentUser._id
                     ? <button className="photo-card__delete button" type="button" aria-label="Удалить место"
                               onClick={handleDeleteClick}/>
                     : null
