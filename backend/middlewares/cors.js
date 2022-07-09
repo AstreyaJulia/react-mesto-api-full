@@ -2,8 +2,8 @@
  * @type {string[]}
  */
 const allowedUrl = [
-  'https://mesto-react.nomoredomains.work',
-  'http://mesto-react.nomoredomains.work',
+  'https://julialatysheva.nomorepartiesxyz.ru',
+  'http://julialatysheva.nomorepartiesxyz.ru',
   'localhost:3000',
 ];
 
