@@ -4,7 +4,8 @@
 export const apiSettings = {
     serverURL: "http://api.julialatysheva.nomorepartiesxyz.ru",
     headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
     },
     credentials: 'include',
 };
