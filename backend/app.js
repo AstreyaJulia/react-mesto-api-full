@@ -18,7 +18,7 @@ const corsAllow = require('./middlewares/cors');
 /** Чтение env-переменных из .env-файла */
 require('dotenv').config();
 
-const { PORT = 3000 } = process.env; // порт, на котором будет прослушиватель сервера
+const { PORT = 3001 } = process.env; // порт, на котором будет прослушиватель сервера
 const app = express();
 
 /** Логгер запросов */
