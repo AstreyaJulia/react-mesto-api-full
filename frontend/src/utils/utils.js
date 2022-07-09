@@ -2,7 +2,7 @@
  * @type {{headers: {"Content-Type": string}, serverURL: string}}
  */
 export const apiSettings = {
-    serverURL: "http://api.julialatysheva.nomorepartiesxyz.ru/api",
+    serverURL: "http://api.julialatysheva.nomorepartiesxyz.ru",
     headers: {
         "Content-Type": "application/json"
     },
@@ -12,4 +12,4 @@ export const apiSettings = {
 /** Адрес сервера авторизации
  * @type {string}
  */
-export const BASE_URL = "http://api.julialatysheva.nomorepartiesxyz.ru/api";
+export const BASE_URL = "http://api.julialatysheva.nomorepartiesxyz.ru";
