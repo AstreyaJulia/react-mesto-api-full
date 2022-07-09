@@ -2,7 +2,7 @@
  * @type {{headers: {"Content-Type": string}, serverURL: string}}
  */
 export const apiSettings = {
-    serverURL: "http://api.julialatysheva.nomorepartiesxyz.ru",
+    serverURL: "https://api.julialatysheva.nomorepartiesxyz.ru",
     headers: {
         "Content-Type": "application/json",
         authorization: 'Bearer ' + localStorage.getItem("jwt"),
@@ -13,4 +13,4 @@ export const apiSettings = {
 /** Адрес сервера авторизации
  * @type {string}
  */
-export const BASE_URL = "http://api.julialatysheva.nomorepartiesxyz.ru";
+export const BASE_URL = "https://api.julialatysheva.nomorepartiesxyz.ru";
