@@ -59,6 +59,7 @@ export const authorize = (loginData) => {
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
+        credentials: 'include',
         body: JSON.stringify(loginData)
     })
         .then((res) => handleAuthResponse(res))
@@ -74,7 +75,8 @@ export const getContent = (token) => {
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`,
-        }
+        },
+        credentials: 'include',
     })
         .then((res) => handleRegResponse(res))
 }

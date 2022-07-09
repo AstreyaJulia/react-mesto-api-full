@@ -4,6 +4,8 @@
 const allowedUrl = [
   'https://julialatysheva.nomorepartiesxyz.ru',
   'http://julialatysheva.nomorepartiesxyz.ru',
+  'https://api.julialatysheva.nomorepartiesxyz.ru',
+  'http://api.julialatysheva.nomorepartiesxyz.ru',
   'localhost:3000',
 ];
 
