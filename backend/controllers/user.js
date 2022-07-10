@@ -166,7 +166,7 @@ const login = (req, res) => {
     email,
     password,
   } = req.body;
-  User.findUserByCredentials(email, password, res)
+  User.findUserByCredentials(email, password)
     .then((user) => {
       const token = sign({ _id: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: '7d' });
       // cookie

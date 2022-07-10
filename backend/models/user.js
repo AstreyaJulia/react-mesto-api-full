@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 const { isEmail, isURL } = require('validator');
 const { compare } = require('bcryptjs');
 const { STATUS } = require('../utils/constants/status');
+const AuthError = require('../errors/auth-error');
 
 /** Схема пользователя
  * @type {Object}
@@ -54,19 +55,17 @@ const userSchema = new Schema(
   },
 );
 
-userSchema.statics.findUserByCredentials = function findUserByCredentials(email, password, res) {
+userSchema.statics.findUserByCredentials = function findUserByCredentials(email, password) {
   return this.findOne({ email })
     .select('+password')
     .then((user) => {
       if (!user) {
-        res.status(401)
-          .send({ message: STATUS.AUTH_FAIL });
+        throw new AuthError(STATUS.AUTH_FAIL);
       }
       return compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            res.status(401)
-              .send({ message: STATUS.AUTH_FAIL });
+            throw new AuthError(STATUS.AUTH_FAIL);
           }
           return user;
         });

@@ -71,7 +71,7 @@ app.post('/signin', signinValidation, login);
 app.post('/signup', signupValidation, createUser);
 
 /** Любые маршруты, не подходящие под имеющиеся роуты, вызовут статус 404 */
-app.use((req, res, next) => {
+app.use(auth, (req, res, next) => {
   next(new NotFoundError(STATUS.NOT_FOUND));
 });
 
