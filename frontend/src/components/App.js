@@ -61,6 +61,9 @@ function App() {
     /** Тип всплывашки Tooltip карточки */
     const [infoTooltipType, setInfoTooltipType] = useState("error");
 
+    /** Сообщение всплывашки Tooltip карточки */
+    const [infoTooltipMessage, setInfoTooltipMessage] = useState("Что-то пошло не так! Попробуйте ещё раз.");
+
     /** Состояние сохранения данных */
     const [isLoading, setIsLoading] = useState(false);
 
@@ -198,13 +201,15 @@ function App() {
         auth.register(registerData)
             .then(() => {
                 handleInfoTooltipPopupOpen();
-                setInfoTooltipType("reg_success");
+                setInfoTooltipType("success");
+                setInfoTooltipMessage("Вы успешно зарегистрировались!")
                 setInfoTooltipOpen(true);
                 history.push("/sign-in");
             })
             .catch((err) => {
                 handleInfoTooltipPopupOpen();
                 setInfoTooltipType("error");
+                setInfoTooltipMessage(err.message);
                 setInfoTooltipOpen(true);
                 console.log(err)
             });
@@ -216,14 +221,15 @@ function App() {
     const handleLogin = (loginData) => {
         auth.authorize(loginData)
             .then((res) => {
-                setLoggedIn(true);
                 localStorage.setItem("jwt", res.token);
                 setUserEmail(loginData.email);
+                setLoggedIn(true);
                 history.push("/");
             })
             .catch((err) => {
                 handleInfoTooltipPopupOpen();
                 setInfoTooltipType("error");
+                setInfoTooltipMessage(err.message);
                 setInfoTooltipOpen(true);
                 console.log(err);
             })
@@ -244,12 +250,29 @@ function App() {
         }
     }
 
+    /** Получение данных пользователя и карточек */
+    const getContent = () => {
+        setIsLoadingAllData(true);
+        api.getAllData()
+            .then((data) => {
+                const [userData, cardsData] = data;
+                setCards(cardsData.data.reverse());
+                setCurrentUser(userData.data);
+            })
+            .catch(error => console.log(error))
+            .finally(() => {
+                setIsLoadingAllData(false);
+            })
+    }
+
     /** Выход из приложения. Удаление токена */
     const handleSignOut = () => {
         localStorage.removeItem("jwt");
+        setUserEmail("");
+        setCurrentUser({});
+        setCards([]);
         setLoggedIn(false);
         history.push("/sign-in");
-        setUserEmail("");
     }
 
     /** Перенаправление на главную для зарег. пользователя и на login для незарег. пользователя */
@@ -258,27 +281,12 @@ function App() {
         // eslint-disable-next-line
     }, [loggedIn]);
 
-    /** Проверка токена, получение email */
-    useEffect(() => {
-        tokenCheck();
-    }, []);
-
     /** Получаем данные залогиненного пользователя, пишем в состояние currentUser */
     /** Получаем массив карточек, пишем в состояние cards */
     useEffect(() => {
-        if (loggedIn) {
-            setIsLoadingAllData(true);
-            api.getAllData()
-                .then((data) => {
-                    const [userData, cardsData] = data;
-                    setCards(cardsData.data.reverse());
-                    setCurrentUser(userData.data);
-                })
-                .catch(error => console.log(error))
-                .finally(() => {
-                    setIsLoadingAllData(false);
-                })
-        }
+        /** Проверка токена, получение email */
+        tokenCheck();
+        if (loggedIn) getContent();
     }, [loggedIn]);
 
     return (<CurrentUserContext.Provider value={currentUser}>
@@ -358,6 +366,7 @@ function App() {
                 popupOpen={infoTooltipOpen}
                 onClose={closeAllPopups}
                 type={infoTooltipType}
+                message={infoTooltipMessage}
             />
         </div>
     </CurrentUserContext.Provider>);

@@ -20,7 +20,7 @@ export class Api {
      * @returns {Promise<Response>} - объект с данными пользователя / текст ошибки */
     getUserInfo() {
         return fetch(`${this._serverURL}/users/me`, {
-            headers: this._headers
+            headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers}
         })
             .then((res) => this._handlePromiseReturn(res));
     }
@@ -32,7 +32,7 @@ export class Api {
     sendUserInfo(userName, userAbout) {
         return fetch(`${this._serverURL}/users/me`, {
             method: "PATCH",
-            headers: this._headers,
+            headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers},
             body: JSON.stringify({
                 name: userName,
                 about: userAbout
@@ -47,7 +47,7 @@ export class Api {
     updateAvatar(avatar) {
         return fetch(`${this._serverURL}/users/me/avatar`, {
             method: "PATCH",
-            headers: this._headers,
+            headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers},
             body: JSON.stringify({
                 avatar: avatar
             })
@@ -61,7 +61,7 @@ export class Api {
      * @returns {Promise<Response>} - объект с карточками / текст ошибки */
     getCards() {
         return fetch(`${this._serverURL}/cards`, {
-            headers: this._headers
+            headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers}
         })
             .then((res) => this._handlePromiseReturn(res));
     }
@@ -73,7 +73,7 @@ export class Api {
     sendCard(cardName, cardLink) {
         return fetch(`${this._serverURL}/cards`, {
             method: "POST",
-            headers: this._headers,
+            headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers},
             body: JSON.stringify({
                 name: cardName,
                 link: cardLink
@@ -88,7 +88,7 @@ export class Api {
     deleteCard(cardID) {
         return fetch(`${this._serverURL}/cards/${cardID}`, {
             method: "DELETE",
-            headers: this._headers
+            headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers}
         })
     }
 
@@ -99,7 +99,7 @@ export class Api {
     changeLikeCardStatus(cardID, cardLiked) {
         return fetch(`${this._serverURL}/cards/${cardID}/likes`, {
             method: cardLiked ? "DELETE" : "PUT",
-            headers: this._headers
+            headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers}
         })
             .then(res => this._handlePromiseReturn(res));
     }
@@ -110,7 +110,6 @@ export class Api {
     getAllData() {
         return Promise.all([this.getUserInfo(), this.getCards()]);
     }
-
 }
 
 /** Экземпляр API

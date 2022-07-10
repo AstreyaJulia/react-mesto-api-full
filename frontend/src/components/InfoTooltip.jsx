@@ -10,12 +10,12 @@ import Tooltip_success from "../images/tooltip_succes.svg";
  */
 const InfoTooltip = (props) => {
 
-    /** Объект типов ошибок с изображениями и текстами
-     * @type {{reg_success: {image: *, text: string}, error: {image: *, text: string}}}
+    /** Объект типов ошибок с изображениями
+     * @type {{success: *, error: *}}
      */
     const tooltip_types = {
-        reg_success: {image: Tooltip_success, text: "Вы успешно зарегистрировались!"}, // успешная регистрация
-        error: {image: Tooltip_error, text: "Что-то пошло не так! Попробуйте ещё раз."} // просто ошибка
+        success: Tooltip_success, // успешная регистрация
+        error: Tooltip_error
     };
 
     return (<Popup
@@ -32,9 +32,9 @@ const InfoTooltip = (props) => {
                     onClick={props.onClose}
                 />
                 <div className="popup__tooltip">
-                    <img className="popup__tooltip-image" src={tooltip_types[props.type].image}
-                         alt={tooltip_types[props.type].text}/>
-                    <p className="popup__tooltip-text">{tooltip_types[props.type].text}</p>
+                    <img className="popup__tooltip-image" src={tooltip_types[props.type]}
+                         alt={tooltip_types[props.message]}/>
+                    <p className="popup__tooltip-text">{props.message}</p>
                 </div>
             </div>
         </Popup>);
